@@ -1,0 +1,19 @@
+<h1> Browse all events</h1>
+
+<h2>Past events</h2>
+<% @past_events.each do |event| %>
+  <h4><%= link_to event.name, event_path(event.id) %></h4>
+  <p>Created by: <%= event.creator.name %> </p>
+  <p>Date: <%= event.date %></p>
+  <p>Location: <%= event.location %></p>
+  <p><%= event.description unless event.description.nil? %></p><br>
+<% end %>
+
+<h2>Upcoming events</h2>
+<% @upcoming_events.each do |event| %>
+  <h4><%= link_to event.name, event_path(event.id) %></h4>
+  <p>Created by: <%= event.creator.name %> </p>
+  <p>Date: <%= event.date %></p>
+  <p>Location: <%= event.location %></p>
+  <p><%= event.description unless event.description.nil? %></p><br>
+<% end %>

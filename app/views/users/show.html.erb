@@ -1,0 +1,40 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<div>
+  <h3>Attended events: </h3>
+    <% @user.event_as_attendee.each do |event| %>
+      <h4><%= link_to event.name, event_path(event.id) %></h4>
+      <p>Created by: <%= event.creator.name %> </p>
+      <p>Date: <%= event.date %></p>
+      <p>Location: <%= event.location %></p>
+      <p><%= event.description unless event.description.nil? %></p><br>
+    <% end %>
+</div>
+<div>
+  <h3>Upcoming events: </h3>
+  <% @upcoming_events.each do |event| %>
+    <h4><%= link_to event.name, event_path(event.id) %></h4>
+    <p>Created by: <%= event.creator.name %> </p>
+    <p>Date: <%= event.date %></p>
+    <p>Location: <%= event.location %></p>
+    <p><%= event.description unless event.description.nil? %></p><br>
+  <% end %>
+</div>
+<div>
+  <h3>Previous events</h3>
+  <% @prev_events.each do |event| %>
+    <h4><%= link_to event.name, event_path(event.id) %></h4>
+    <p>Created by: <%= event.creator.name %> </p>
+    <p>Date: <%= event.date %></p>
+    <p>Location: <%= event.location %></p>
+    <p><%= event.description unless event.description.nil? %></p><br>
+  <% end %>
+</div>
