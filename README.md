@@ -1,24 +1,26 @@
-# README
+# Ruby on Rails Tutorial sample application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is part of the Odin project curriculum and is a replica of the core functionalities of eventbrite, which allows users to create events and then manage user signups.
 
-Things you may want to cover:
 
-* Ruby version
+## Getting started
 
-* System dependencies
+To get started with the app, clone the repo and then install the needed gems:
 
-* Configuration
+```
+$ bundle install --without production
+```
 
-* Database creation
+Next, migrate the database:
 
-* Database initialization
+```
+$ rails db:migrate
+```
+After that, you'll be ready to run the app in a local server:
 
-* How to run the test suite
+```
+$ rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For more information, see the
+[*Odin project Tutorial* site](https://www.theodinproject.com/courses).
