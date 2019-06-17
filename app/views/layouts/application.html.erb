@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <div class="container">
+    <nav>
+      <%= link_to 'Home', root_path %> |
+      <% if current_user %>
+        <%= link_to 'New event', new_event_path %> |
+        <%= link_to current_user.name, user_path(current_user) %> |
+        <%= link_to 'Log out', signout_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign up', signup_path %> |
+        <%= link_to 'Log in', signin_path %>
+      <% end %>
+    </nav>
+    <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message) %>
+      <% end %>
     <%= yield %>
+    </div>
   </body>
 </html>

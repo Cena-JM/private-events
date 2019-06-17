@@ -1,0 +1,14 @@
+<h1><%= @event.name %></h1>
+<p>Created by: <%= @event.creator.name %> </p>
+<p>Date: <%= @event.date %></p>
+<p>Location: <%= @event.location %></p>
+<p><%= @event.description unless @event.description.nil? %></p>
+<br>
+
+<% if @event.attendees.empty? %>
+  <p> No attendees </p>
+<%else%>
+  <%= @event.attendees.each do |attendee| %>
+    <li><%= attendee %></li>
+  <% end %>
+<% end %>
